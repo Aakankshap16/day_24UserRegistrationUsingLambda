@@ -9,7 +9,7 @@
             ValidationCode validationCode = new ValidationCode();
             validationCode.ValidateFirstName();
             validationCode.ValidateLastName();
-
+            validationCode.ValidateEmail();
         }
     }
 }
