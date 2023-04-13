@@ -58,7 +58,26 @@ namespace UserRegistrationUsingLambda
             }
         }
 
-
+        //PHONE NUMBER
+        public void ValidatePhone()
+        {
+            Func<string, bool> PhoneNumber = phoneNum =>
+            {
+                string pattern = @"^[1-9]{2} [0-9]{10}$";
+                Regex regex = new Regex(pattern);
+                return regex.IsMatch(phoneNum);
+            };
+            Console.Write("Please enter your Phone Number: ");
+            string phone =Console.ReadLine();
+            if (PhoneNumber(phone) == true)
+            {
+                Console.WriteLine("Valid Phone Number!");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Phone Number. Please enter a valid Phone Number.");
+            }
+        }
 
 
 
