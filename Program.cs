@@ -8,6 +8,8 @@
             Console.WriteLine("**************************");
             ValidationCode validationCode = new ValidationCode();
             validationCode.ValidateFirstName();
+            validationCode.ValidateLastName();
+
         }
     }
 }
