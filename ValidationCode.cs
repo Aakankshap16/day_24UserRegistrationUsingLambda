@@ -100,6 +100,35 @@ namespace UserRegistrationUsingLambda
             }
         }
 
+        // validate each email sample using lambda expression
+        public void ValidateAllEmailSample()
+        {
+            string[] emailSamples = new string[] { "abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com" };
+
+            Func<string, bool> Email = email1 =>
+            {
+                string pattern = @"^[0-9a-z._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
+                Regex regex = new Regex(pattern);
+                return regex.IsMatch(email1);
+            };
+           
+
+            Array.ForEach(emailSamples, email => {
+                Console.Write("Please enter your email address: ");
+                string email2 = Console.ReadLine();
+           
+
+            if (Email(email2) == true)
+                {
+                    Console.WriteLine(email2 + " passed validation.");
+                }
+                else
+                {
+                    Console.WriteLine(email2 + " failed validation.");
+                }
+            });
+
+        }
 
 
     }
