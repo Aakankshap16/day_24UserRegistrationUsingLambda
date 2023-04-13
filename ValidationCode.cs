@@ -84,7 +84,7 @@ namespace UserRegistrationUsingLambda
         {
             Func<string, bool> Password = pass =>
             {
-                string pattern = @"^(?=.*[A-Z])(?=.*\d).{8,}$";
+                string pattern = @"^(?=.*[A-Z])(?=.*\d)(?=[^@$!%*?&][@$!%*?&][^@$!%*?&]*$).{8,}$";
                 Regex regex = new Regex(pattern);
                 return regex.IsMatch(pass);
             };
