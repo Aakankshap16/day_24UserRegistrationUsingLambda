@@ -39,7 +39,7 @@ namespace UserRegistrationUsingLambda
         // EMAIL ADDRESS
         public void ValidateEmail()
         {
-            Func<string, bool> Email = email1 => 
+            Func<string, bool> Email = email1 =>
             {
                 string pattern = @"^[0-9a-z._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
                 Regex regex = new Regex(pattern);
@@ -68,7 +68,7 @@ namespace UserRegistrationUsingLambda
                 return regex.IsMatch(phoneNum);
             };
             Console.Write("Please enter your Phone Number: ");
-            string phone =Console.ReadLine();
+            string phone = Console.ReadLine();
             if (PhoneNumber(phone) == true)
             {
                 Console.WriteLine("Valid Phone Number!");
@@ -79,6 +79,26 @@ namespace UserRegistrationUsingLambda
             }
         }
 
+        //PASSWORD
+        public void ValidatePassword()
+        {
+            Func<string, bool> Password = pass =>
+            {
+                string pattern = @"^.{8,}$";
+                Regex regex = new Regex(pattern);
+                return regex.IsMatch(pass);
+            };
+            Console.Write("Please enter your password: ");
+            string password = Console.ReadLine();
+            if (Password(password) == true)
+            {
+                Console.WriteLine("Valid Password!");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Password. Please enter a valid Password.");
+            }
+        }
 
 
 
